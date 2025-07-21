@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellVine | Premium Global Medical Equipment Solutions</title>
+    <meta name="description" content="Worldwide distributor of high-quality medical equipment to hospitals and healthcare centers. Fast, reliable global delivery.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #005f73;
+            --primary-dark: #003d4d;
+            --secondary: #0a9396;
+            --accent: #94d2bd;
+            --light: #e9d8a6;
+            --dark: #001219;
+            --white: #ffffff;
+            --gray: #f8f9fa;
+            --gray-dark: #e9ecef;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+        
+        .logo span {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 95, 115, 0.85), rgba(10, 147, 150, 0.85)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--gray-dark);
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 15px auto 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card:hover::before {
+            height: 10px;
+        }
+        
+        .feature-icon {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 25px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+        }
+        
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .product-categories {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 8px 15px;
+            background-color: var(--gray);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            border: 1px solid var(--gray-dark);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-img {
+            height: 220px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .product-info p {
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+        
+        .rating {
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+        
+        .rating .filled {
+            color: #ffc107;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .product-actions .btn {
+            flex: 1;
+            padding: 8px 10px;
+            font-size: 0.9rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1581595219315-a187dd40c322?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .testimonials .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonials .section-title {
+            color: var(--white);
+        }
+        
+        .testimonials .section-title::after {
+            background-color: var(--accent);
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 8px;
+            min-width: 100%;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+        }
+        
+        .testimonial-text::before {
+            top: -20px;
+            left: -15px;
+        }
+        
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -15px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background-color: var(--white);
+            transform: scale(1.2);
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+        }
+        
+        .cta h2 {
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .newsletter .btn {
+            padding: 12px 25px;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background-color: var(--gray);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-card {
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            color: var(--accent);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+            color: var(--accent);
+        }
+        
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .footer-contact i {
+            color: var(--accent);
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 10px 0;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .newsletter {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0;
+                background-attachment: scroll;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                margin-bottom: 40px;
+            }
+            
+            .features,
+            .products,
+            .testimonials,
+            .cta,
+            .stats {
+                padding: 60px 0;
+            }
+            
+            .product-categories {
+                justify-content: center;
+                margin-top: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 30px 20px;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <img src="well.png" alt="WellVine Logo">
+                    <div class="logo-text">
+                        <h1>WellVine</h1>
+                        <span>Global Medical Solutions</span>
+                    </div>
+                </div>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="index.html " class="active">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Fast Global Delivery of Medical Equipment</h2>
+                <p>Trusted by hospitals and medical centers worldwide for premium quality equipment and unparalleled delivery speed.</p>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-primary">Order Now</a>
+                    <a href="#" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose WellVine?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Network</h3>
+                    <p>With distribution centers in 12 countries, we deliver to over 150 countries with customs-cleared shipping.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our dedicated support team is available around the clock to assist with your medical equipment needs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certified Quality</h3>
+                    <p>All products meet ISO 13485, FDA, CE, and other international medical equipment standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="clientCount">0</div>
+                    <div class="stat-label">Satisfied Clients</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="countryCount">0</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="productCount">0</div>
+                    <div class="stat-label">Quality Products</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="deliveryCount">0</div>
+                    <div class="stat-label">Fast Deliveries</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <div class="products-header">
+                <h2 class="section-title">Featured Medical Equipment</h2>
+                <div class="product-categories">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="diagnostic">Diagnostic</button>
+                    <button class="category-btn" data-category="surgical">Surgical</button>
+                    <button class="category-btn" data-category="monitoring">Monitoring</button>
+                    <button class="category-btn" data-category="laboratory">Laboratory</button>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+H
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Trusted by Medical Professionals</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">WellVine has transformed our hospital's equipment procurement process. Their fast delivery and reliable products have been invaluable to our operations, especially during critical times when we needed emergency equipment replacements.</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Dr. Sarah Johnson">
+                            </div>
+                            <div class="author-info">
+                                <h4>Dr. Sarah Johnson</h4>
+                                <p>Chief Medical Officer, Boston General</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">The quality of medical equipment from WellVine consistently exceeds our expectations. Their global shipping capabilities make them our preferred supplier, especially for our clinics in remote locations.</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Michael Chen">
+                            </div>
+                            <div class="author-info">
+                                <h4>Dr. Michael Chen</h4>
+                                <p>Hospital Director, Singapore Medical Center</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">As a medical center in a remote location, we rely on WellVine's efficient delivery system to get us the equipment we need when we need it. Their technical support team is also exceptional.</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Nurse Amina Diallo">
+                            </div>
+                            <div class="author-info">
+                                <h4>Nurse Amina Diallo</h4>
+                                <p>Clinic Supervisor, Nairobi Health Clinic</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav" id="sliderNav">
+                    <div class="slider-dot active" data-index="0"></div>
+                    <div class="slider-dot" data-index="1"></div>
+                    <div class="slider-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Upgrade Your Medical Facility?</h2>
+            <p>Join thousands of healthcare providers who trust WellVine for their medical equipment needs. Get a personalized quote today.</p>
+            <form class="newsletter">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-primary">Get a Quote</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>WellVine</h3>
+                    <p>Leading global provider of high-quality medical equipment and supplies to healthcare institutions worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Diagnostic Equipment</a></li>
+                        <li><a href="#">Surgical Instruments</a></li>
+                        <li><a href="#">Patient Monitoring</a></li>
+                        <li><a href="#">Laboratory Equipment</a></li>
+                        <li><a href="#">Medical Furniture</a></li>
+                        <li><a href="#">Disposable Supplies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Medical Way, Boston, MA 02115, USA</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (800) 555-HEAL</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@wellvine.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>24/7 Support Available</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 WellVine Medical Equipment. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('main-nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Header Scroll Effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Animated Counter
+            function animateCounter(element, target, duration = 2000) {
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(timer);
+                        current = target;
+                    }
+                    element.textContent = Math.floor(current).toLocaleString();
+                }, 16);
+            }
+            
+            // Start counters when stats section is in view
+            const statsSection = document.querySelector('.stats');
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    animateCounter(document.getElementById('clientCount'), 2500);
+                    animateCounter(document.getElementById('countryCount'), 150);
+                    animateCounter(document.getElementById('productCount'), 500);
+                    animateCounter(document.getElementById('deliveryCount'), 10000);
+                    observer.unobserve(statsSection);
+                }
+            }, { threshold: 0.5 });
+            
+            observer.observe(statsSection);
+            
+            // Product Filtering
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const productsGrid = document.getElementById('productsGrid');
+            
+            // Sample product data
+            const products = [
+                {
+                    id: 1,
+                    name: 'Advanced MRI Machine',
+                    description: 'High-resolution imaging with 3T magnet for precise diagnostics',
+                    price: 1250000,
+                    oldPrice: 1350000,
+                    category: 'diagnostic',
+                    image: '1st.jpeg',
+                    rating: 5,
+                    badge: 'New'
+                },
+                {
+                    id: 2,
+                    name: 'Surgical Instrument Set',
+                    description: 'Complete set of 120 precision surgical tools',
+                    price: 2800,
+                    oldPrice: 3200,
+                    category: 'surgical',
+                    image: 'Set.jpeg',
+                    rating: 4,
+                    badge: 'Popular'
+                },
+                {
+                    id: 3,
+                    name: 'Patient Monitor System',
+                    description: '6-parameter monitoring with central station connectivity',
+                    price: 5200,
+                    category: 'monitoring',
+                    image: 'system.jpeg',
+                    rating: 5,
+                    badge: 'Best Seller'
+                },
+                {
+                    id: 4,
+                    name: 'Centrifuge Machine',
+                    description: 'High-speed laboratory centrifuge with 6-place rotor',
+                    price: 3750,
+                    oldPrice: 4200,
+                    category: 'laboratory',
+                    image: 'Cent.jpeg',
+                    rating: 4
+                },
+                {
+                    id: 5,
+                    name: 'Ultrasound System',
+                    description: 'Portable ultrasound with 3D imaging capabilities',
+                    price: 45000,
+                    category: 'diagnostic',
+                    image: 'ultra.jpeg',
+                    rating: 5
+                },
+                {
+                    id: 6,
+                    name: 'Electrosurgical Unit',
+                    description: 'Precision electrosurgical generator with multiple modes',
+                    price: 8500,
+                    category: 'surgical',
+                    image: 'Electro.jpeg',
+                    rating: 4
+                },
+                {
+                    id: 7,
+                    name: 'Ventilator System',
+                    description: 'ICU ventilator with advanced ventilation modes',
+                    price: 12500,
+                    oldPrice: 14000,
+                    category: 'monitoring',
+                    image: 'electro.jpeg',
+                    rating: 5,
+                    badge: 'New'
+                },
+                {
+                    id: 8,
+                    name: 'Microscope',
+                    description: 'Binocular laboratory microscope with LED illumination',
+                    price: 2200,
+                    category: 'laboratory',
+                    image: 'micro.jpeg',
+                    rating: 4
+                }
+            ];
+            
+            // Render products
+            function renderProducts(filter = 'all') {
+                productsGrid.innerHTML = '';
+                const filteredProducts = filter === 'all' 
+                    ? products 
+                    : products.filter(product => product.category === filter);
+                
+                filteredProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                        <div class="product-img">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-info">
+                            <h3>${product.name}</h3>
+                            <p>${product.description}</p>
+                            <div class="product-meta">
+                                <span class="price">$${product.price.toLocaleString()}
+                                    ${product.oldPrice ? `<span class="old-price">$${product.oldPrice.toLocaleString()}</span>` : ''}
+                                </span>
+                                <span class="rating">
+                                    ${'<i class="fas fa-star filled"></i>'.repeat(product.rating)}
+                                    ${'<i class="fas fa-star"></i>'.repeat(5 - product.rating)}
+                                </span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn">Details</button>
+                                <button class="btn btn-primary">Quote</button>
+                            </div>
+                        </div>
+                    `;
+                    productsGrid.appendChild(productCard);
+                });
+            }
+            
+            // Initial render
+            renderProducts();
+            
+            // Filter products
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const category = this.dataset.category;
+                    renderProducts(category);
+                });
+            });
+            
+            // Testimonial Slider
+            const testimonialTrack = document.getElementById('testimonialTrack');
+            const sliderDots = document.querySelectorAll('.slider-dot');
+            let currentSlide = 0;
+            
+            function goToSlide(index) {
+                testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+                sliderDots.forEach(dot => dot.classList.remove('active'));
+                sliderDots[index].classList.add('active');
+                currentSlide = index;
+            }
+            
+            sliderDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    goToSlide(index);
+                });
+            });
+            
+            // Auto slide
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % sliderDots.length;
+                goToSlide(currentSlide);
+            }, 5000);
+            
+            // Form submission
+            const newsletterForm = document.querySelector('.newsletter');
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input').value;
+                // Here you would typically send the email to your server
+                alert(`Thank you for your interest! We'll contact you at ${email} shortly.`);
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
