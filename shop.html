@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Medical Equipment | WellVine</title>
+    <meta name="description" content="Browse our extensive catalog of high-quality medical equipment and tools for hospitals and healthcare centers worldwide.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #005f73;
+            --primary-dark: #003d4d;
+            --secondary: #0a9396;
+            --accent: #94d2bd;
+            --light: #e9d8a6;
+            --dark: #001219;
+            --white: #ffffff;
+            --gray: #f8f9fa;
+            --gray-dark: #e9ecef;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+        
+        .logo span {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Shop Hero */
+        .shop-hero {
+            background: linear-gradient(rgba(0, 95, 115, 0.85), rgba(10, 147, 150, 0.85)), url('https://images.unsplash.com/photo-1581093450021-4a7360e9a7e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .shop-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .shop-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Shop Controls */
+        .shop-controls {
+            padding: 40px 0;
+            background-color: var(--gray);
+        }
+        
+        .controls-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 500px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border: 1px solid var(--gray-dark);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(10, 147, 150, 0.2);
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+        
+        .filter-dropdown {
+            position: relative;
+        }
+        
+        .filter-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background-color: var(--white);
+            border: 1px solid var(--gray-dark);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--secondary);
+        }
+        
+        .filter-dropdown-content {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--white);
+            border: 1px solid var(--gray-dark);
+            border-radius: 4px;
+            padding: 15px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            display: none;
+        }
+        
+        .filter-dropdown.active .filter-dropdown-content {
+            display: block;
+        }
+        
+        .filter-group {
+            margin-bottom: 15px;
+        }
+        
+        .filter-group h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .filter-options {
+            list-style: none;
+        }
+        
+        .filter-options li {
+            margin-bottom: 8px;
+        }
+        
+        .filter-options label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        
+        .filter-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--gray-dark);
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        /* Products Grid */
+        .shop-products {
+            padding: 60px 0;
+        }
+        
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .products-sort {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .products-sort label {
+            font-weight: 500;
+        }
+        
+        .products-sort select {
+            padding: 8px 15px;
+            border: 1px solid var(--gray-dark);
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            border: 1px solid var(--gray-dark);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-img {
+            height: 220px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .product-info p {
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+        
+        .rating {
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+        
+        .rating .filled {
+            color: #ffc107;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .product-actions .btn {
+            flex: 1;
+            padding: 8px 10px;
+            font-size: 0.9rem;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        
+        .pagination-list {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        
+        .pagination-item a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gray-dark);
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .pagination-item a:hover,
+        .pagination-item.active a {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            color: var(--accent);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+            color: var(--accent);
+        }
+        
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .footer-contact i {
+            color: var(--accent);
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 10px 0;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .controls-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-box {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .shop-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .shop-hero p {
+                font-size: 1rem;
+            }
+            
+            .products-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .shop-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">
+                    <img src="well.png" alt="WellVine Logo">
+                    <div class="logo-text">
+                        <h1>WellVine</h1>
+                        <span>Global Medical Solutions</span>
+                    </div>
+                </a>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html" class="active">Shop</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Shop Hero -->
+    <section class="shop-hero">
+        <div class="container">
+            <h1>Medical Equipment Catalog</h1>
+            <p>Browse our extensive selection of high-quality medical tools and equipment for healthcare professionals</p>
+        </div>
+    </section>
+
+    <!-- Shop Controls -->
+    <section class="shop-controls">
+        <div class="container">
+            <div class="controls-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for equipment..." id="searchInput">
+                </div>
+                <div class="filter-dropdown" id="filterDropdown">
+                    <button class="filter-btn">
+                        <i class="fas fa-filter"></i>
+                        Filters
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="filter-dropdown-content">
+                        <div class="filter-group">
+                            <h4>Categories</h4>
+                            <ul class="filter-options">
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="category" value="diagnostic" checked>
+                                        Diagnostic Equipment
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="category" value="surgical" checked>
+                                        Surgical Instruments
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="category" value="monitoring" checked>
+                                        Patient Monitoring
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="category" value="laboratory" checked>
+                                        Laboratory Equipment
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Price Range</h4>
+                            <div class="price-range">
+                                <input type="range" min="0" max="10000" value="10000" id="priceRange">
+                                <div class="range-values">
+                                    <span>$0</span>
+                                    <span id="maxPriceValue">$10,000+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-outline" id="resetFilters">Reset</button>
+                            <button class="btn btn-primary" id="applyFilters">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="shop-products">
+        <div class="container">
+            <div class="products-header">
+                <h2>Showing <span id="productCount">12</span> products</h2>
+                <div class="products-sort">
+                    <label for="sortSelect">Sort by:</label>
+                    <select id="sortSelect">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name-asc">Name: A to Z</option>
+                        <option value="name-desc">Name: Z to A</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded via JavaScript -->
+            </div>
+            <div class="pagination">
+                <ul class="pagination-list">
+                    <li class="pagination-item">
+                        <a href="#"><i class="fas fa-chevron-left"></i></a>
+                    </li>
+                    <li class="pagination-item active">
+                        <a href="#">1</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="#">2</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="#">3</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="#">4</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="#"><i class="fas fa-chevron-right"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>WellVine</h3>
+                    <p>Leading global provider of high-quality medical equipment and supplies to healthcare institutions worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Product Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Diagnostic Equipment</a></li>
+                        <li><a href="#">Surgical Instruments</a></li>
+                        <li><a href="#">Patient Monitoring</a></li>
+                        <li><a href="#">Laboratory Equipment</a></li>
+                        <li><a href="#">Medical Furniture</a></li>
+                        <li><a href="#">Disposable Supplies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Medical Way, Boston, MA 02115, USA</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (800) 555-HEAL</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@wellvine.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>24/7 Support Available</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 WellVine Medical Equipment. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('#mainNav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                });
+            });
+
+            // Sample product data
+            const products = [
+                {
+                    id: 1,
+                    name: 'Portable Ultrasound Machine',
+                    description: 'Compact ultrasound system with 15-inch touchscreen and multiple probes',
+                    price: 12500,
+                    category: 'diagnostic',
+                    image: 'ultra.jpeg',
+                    rating: 5,
+                    inStock: true
+                },
+                {
+                    id: 2,
+                    name: 'Surgical Instrument Set',
+                    description: 'Complete set of 120 precision surgical tools in durable case',
+                    price: 2800,
+                    category: 'surgical',
+                    image: 'Set.jpeg',
+                    rating: 4,
+                    inStock: true
+                },
+                {
+                    id: 3,
+                    name: 'Patient Monitor System',
+                    description: '6-parameter monitoring with central station connectivity',
+                    price: 5200,
+                    category: 'monitoring',
+                    image: 'system.jpeg',
+                    rating: 5,
+                    inStock: true
+                },
+                {
+                    id: 4,
+                    name: 'Laboratory Centrifuge',
+                    description: 'High-speed centrifuge with 6-place rotor and digital display',
+                    price: 3750,
+                    category: 'laboratory',
+                    image: 'cent.jpeg',
+                    rating: 4,
+                    inStock: true
+                },
+                {
+                    id: 5,
+                    name: 'ECG Machine',
+                    description: '12-lead ECG machine with built-in printer ',
+                    price: 3200,
+                    category: 'diagnostic',
+                    image:'1st.jpeg',
+                    rating: 4,
+                    inStock: true
+                },
+                {
+                    id: 6,
+                    name: 'Electrosurgical Unit',
+                    description: 'Precision electrosurgical generator with multiple modes',
+                    price: 8500,
+                    category: 'surgical',
+                    image: 'set.jpeg',
+                    rating: 4,
+                    inStock: false
+                },
+                {
+                    id: 7,
+                    name: 'Ventilator System',
+                    description: 'ICU ventilator with advanced ventilation modes and touchscreen',
+                    price: 12500,
+                    category: 'monitoring',
+                    image: 'electro.jpeg',
+                    rating: 5,
+                    inStock: true
+                },
+                {
+                    id: 8,
+                    name: 'Microscope',
+                    description: 'Binocular laboratory microscope with LED illumination',
+                    price: 2200,
+                    category: 'laboratory',
+                    image: 'micro.jpeg',
+                    rating: 4,
+                    inStock: true
+                },
+                {
+                    id: 9,
+                    name: 'X-ray Machine',
+                    description: 'Digital radiography system with high-resolution imaging',
+                    price: 45000,
+                    category: 'diagnostic',
+                    image:'x.jpeg',
+                    rating: 5,
+                    inStock: true
+                },
+                {
+                    id: 10,
+                    name: 'Anesthesia Machine',
+                    description: 'Complete anesthesia delivery system with ventilator',
+                    price: 18500,
+                    category: 'monitoring',
+                    image: 'b.jpeg',
+                    rating: 5,
+                    inStock: true
+                },
+                {
+                    id: 11,
+                    name: 'Autoclave Sterilizer',
+                    description: 'Large capacity steam sterilizer for surgical instruments',
+                    price: 6800,
+                    category: 'surgical',
+                    image: 'a.jpeg',
+                    rating: 4,
+                    inStock: true
+                },
+                {
+                    id: 12,
+                    name: 'Blood Analyzer',
+                    description: 'Automated hematology analyzer for complete blood counts',
+                    price: 9200,
+                    category: 'laboratory',
+                    image: 'blood.webp',
+                    rating: 4,
+                    inStock: true
+                }
+            ];
+
+            // DOM Elements
+            const productsGrid = document.getElementById('productsGrid');
+            const searchInput = document.getElementById('searchInput');
+            const filterDropdown = document.getElementById('filterDropdown');
+            const filterBtn = filterDropdown.querySelector('.filter-btn');
+            const categoryCheckboxes = document.querySelectorAll('input[name="category"]');
+            const priceRange = document.getElementById('priceRange');
+            const maxPriceValue = document.getElementById('maxPriceValue');
+            const resetFiltersBtn = document.getElementById('resetFilters');
+            const applyFiltersBtn = document.getElementById('applyFilters');
+            const sortSelect = document.getElementById('sortSelect');
+            const productCount = document.getElementById('productCount');
+
+            // Current filters
+            let currentFilters = {
+                categories: ['diagnostic', 'surgical', 'monitoring', 'laboratory'],
+                maxPrice: 10000,
+                searchQuery: '',
+                sortBy: 'featured'
+            };
+
+            // Initialize the shop
+            function initShop() {
+                renderProducts(products);
+                setupEventListeners();
+            }
+
+            // Render products to the grid
+            function renderProducts(productsToRender) {
+                productsGrid.innerHTML = '';
+                
+                if (productsToRender.length === 0) {
+                    productsGrid.innerHTML = '<div class="no-results">No products match your search criteria.</div>';
+                    productCount.textContent = '0';
+                    return;
+                }
+                
+                productCount.textContent = productsToRender.length;
+                
+                productsToRender.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        ${!product.inStock ? '<span class="product-badge">Out of Stock</span>' : ''}
+                        <div class="product-img">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-info">
+                            <h3>${product.name}</h3>
+                            <p>${product.description}</p>
+                            <div class="product-meta">
+                                <span class="price">$${product.price.toLocaleString()}</span>
+                                <span class="rating">
+                                    ${'<i class="fas fa-star filled"></i>'.repeat(product.rating)}
+                                    ${'<i class="fas fa-star"></i>'.repeat(5 - product.rating)}
+                                </span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-outline">Details</button>
+                                <button class="btn btn-primary" ${!product.inStock ? 'disabled' : ''}>${product.inStock ? 'Buy Now' : 'Out of Stock'}</button>
+                            </div>
+                        </div>
+                    `;
+                    productsGrid.appendChild(productCard);
+                });
+            }
+
+            // Filter products based on current filters
+            function filterProducts() {
+                let filteredProducts = [...products];
+                
+                // Filter by category
+                if (currentFilters.categories.length > 0) {
+                    filteredProducts = filteredProducts.filter(product => 
+                        currentFilters.categories.includes(product.category)
+                    );
+                }
+                
+                // Filter by price
+                filteredProducts = filteredProducts.filter(product => 
+                    product.price <= currentFilters.maxPrice
+                );
+                
+                // Filter by search query
+                if (currentFilters.searchQuery) {
+                    const query = currentFilters.searchQuery.toLowerCase();
+                    filteredProducts = filteredProducts.filter(product => 
+                        product.name.toLowerCase().includes(query) || 
+                        product.description.toLowerCase().includes(query)
+                    );
+                }
+                
+                // Sort products
+                filteredProducts = sortProducts(filteredProducts, currentFilters.sortBy);
+                
+                return filteredProducts;
+            }
+
+            // Sort products based on selected option
+            function sortProducts(productsToSort, sortBy) {
+                switch(sortBy) {
+                    case 'price-low':
+                        return [...productsToSort].sort((a, b) => a.price - b.price);
+                    case 'price-high':
+                        return [...productsToSort].sort((a, b) => b.price - a.price);
+                    case 'name-asc':
+                        return [...productsToSort].sort((a, b) => a.name.localeCompare(b.name));
+                    case 'name-desc':
+                        return [...productsToSort].sort((a, b) => b.name.localeCompare(a.name));
+                    case 'rating':
+                        return [...productsToSort].sort((a, b) => b.rating - a.rating);
+                    default: // 'featured'
+                        return productsToSort;
+                }
+            }
+
+            // Update filters from UI
+            function updateFiltersFromUI() {
+                // Get selected categories
+                currentFilters.categories = Array.from(categoryCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                
+                // Get max price
+                currentFilters.maxPrice = parseInt(priceRange.value);
+                
+                // Update max price display
+                if (currentFilters.maxPrice >= 10000) {
+                    maxPriceValue.textContent = '$10,000+';
+                } else {
+                    maxPriceValue.textContent = `$${currentFilters.maxPrice.toLocaleString()}`;
+                }
+            }
+
+            // Setup event listeners
+            function setupEventListeners() {
+                // Toggle filter dropdown
+                filterBtn.addEventListener('click', function() {
+                    filterDropdown.classList.toggle('active');
+                });
+                
+                // Close filter dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!filterDropdown.contains(e.target) && e.target !== filterBtn) {
+                        filterDropdown.classList.remove('active');
+                    }
+                });
+                
+                // Search input
+                searchInput.addEventListener('input', function() {
+                    currentFilters.searchQuery = this.value.trim();
+                    const filteredProducts = filterProducts();
+                    renderProducts(filteredProducts);
+                });
+                
+                // Category checkboxes
+                categoryCheckboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        updateFiltersFromUI();
+                    });
+                });
+                
+                // Price range
+                priceRange.addEventListener('input', function() {
+                    updateFiltersFromUI();
+                });
+                
+                // Reset filters
+                resetFiltersBtn.addEventListener('click', function() {
+                    categoryCheckboxes.forEach(checkbox => {
+                        checkbox.checked = true;
+                    });
+                    priceRange.value = 10000;
+                    updateFiltersFromUI();
+                    const filteredProducts = filterProducts();
+                    renderProducts(filteredProducts);
+                });
+                
+                // Apply filters
+                applyFiltersBtn.addEventListener('click', function() {
+                    updateFiltersFromUI();
+                    const filteredProducts = filterProducts();
+                    renderProducts(filteredProducts);
+                    filterDropdown.classList.remove('active');
+                });
+                
+                // Sort select
+                sortSelect.addEventListener('change', function() {
+                    currentFilters.sortBy = this.value;
+                    const filteredProducts = filterProducts();
+                    renderProducts(filteredProducts);
+                });
+            }
+
+            // Initialize the shop
+            initShop();
+        });
+    </script>
+</body>
+</html>
