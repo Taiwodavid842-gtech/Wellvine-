@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service Details | WellVine</title>
+    <meta name="description" content="Complete details for medical equipment product with ordering options">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #005f73;
+            --primary-dark: #003d4d;
+            --secondary: #0a9396;
+            --accent: #94d2bd;
+            --light: #e9d8a6;
+            --dark: #001219;
+            --white: #ffffff;
+            --gray: #f8f9fa;
+            --gray-dark: #e9ecef;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+        
+        .logo span {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Breadcrumbs */
+        .breadcrumbs {
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumbs a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .breadcrumbs span {
+            color: #666;
+        }
+        
+        /* Product Detail */
+        .product-detail {
+            padding: 40px 0 60px;
+        }
+        
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .product-gallery {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 15px;
+        }
+        
+        .thumbnail-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border: 1px solid var(--gray-dark);
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .thumbnail:hover {
+            border-color: var(--primary);
+        }
+        
+        .thumbnail.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 500px;
+            border: 1px solid var(--gray-dark);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+        }
+        
+        .main-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .product-info {
+            padding: 20px 0;
+        }
+        
+        .product-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .product-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .product-rating .stars {
+            color: #ffc107;
+        }
+        
+        .product-rating .count {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .product-sku {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .product-description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .product-specs {
+            margin-bottom: 30px;
+        }
+        
+        .specs-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .specs-list {
+            list-style: none;
+        }
+        
+        .specs-list li {
+            display: flex;
+            margin-bottom: 8px;
+        }
+        
+        .specs-list li span:first-child {
+            font-weight: 500;
+            min-width: 150px;
+        }
+        
+        /* Order Form */
+        .order-form {
+            background-color: var(--gray);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--gray-dark);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-input {
+            width: 70px;
+            padding: 10px;
+            border: 1px solid var(--gray-dark);
+            border-radius: 4px;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border: 1px solid var(--gray-dark);
+            border-radius: 4px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .quantity-btn:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
+        .shipping-method {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--gray-dark);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .shipping-estimate {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            flex: 1;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background-color: var(--white);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            flex: 1;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        /* Related Products */
+        .related-products {
+            padding: 40px 0;
+            border-top: 1px solid var(--gray-dark);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            color: var(--accent);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+            color: var(--accent);
+        }
+        
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .footer-contact i {
+            color: var(--accent);
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 10px 0;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-gallery {
+                grid-template-columns: 60px 1fr;
+            }
+            
+            .thumbnail {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .main-image {
+                height: 400px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-image {
+                height: 350px;
+            }
+            
+            .product-title {
+                font-size: 1.6rem;
+            }
+            
+            .product-price {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .product-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .thumbnail-list {
+                flex-direction: row;
+                order: 2;
+            }
+            
+            .main-image {
+                height: 300px;
+                order: 1;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">
+                    <img src="well.png" alt="WellVine Logo">
+                    <div class="logo-text">
+                        <h1>WellVine</h1>
+                        <span>Global Medical Solutions</span>
+                    </div>
+                </a>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="service.html" class="active">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> &gt; 
+            <a href="shop.html">Shop</a> &gt; 
+            <span>Portable Ultrasound Machine</span>
+        </div>
+    </div>
+
+    <!-- Product Detail -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-gallery">
+                    <div class="thumbnail-list">
+                        <div class="thumbnail active">
+                            <img src="ultra.jpeg" alt="Ultrasound Machine Front View">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="ultra.jpeg" alt="Ultrasound Machine Side View">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="ultra.jpeg">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="ultra.jpeg" alt="Ultrasound Machine Accessories">
+                        </div>
+                    </div>
+                    <div class="main-image">
+                        <img src="ultra.jpeg" id="mainProductImage">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h1 class="product-title">Portable Ultrasound Machine</h1>
+                    <div class="product-meta">
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="count">(24 reviews)</span>
+                        </div>
+                        <div class="product-sku">SKU: US-2023-PRO</div>
+                    </div>
+                    <div class="product-price">$12,500.00</div>
+                    <div class="product-description">
+                        <p>The WellVine Portable Ultrasound Machine is a state-of-the-art diagnostic imaging system designed for medical professionals who require high-quality imaging in a compact, mobile package. With its 15-inch HD touchscreen, multiple probe compatibility, and advanced imaging software, this system delivers exceptional clarity for a wide range of diagnostic applications.</p>
+                        <p>Ideal for hospitals, clinics, and emergency medical services, this ultrasound machine features wireless connectivity, long battery life, and intuitive controls that streamline the diagnostic process.</p>
+                    </div>
+                    <div class="product-specs">
+                        <h3 class="specs-title">Specifications</h3>
+                        <ul class="specs-list">
+                            <li><span>Model:</span> <span>US-2023-PRO</span></li>
+                            <li><span>Display:</span> <span>15" HD Touchscreen</span></li>
+                            <li><span>Probes:</span> <span>Convex, Linear, Phased Array</span></li>
+                            <li><span>Imaging Modes:</span> <span>B-mode, M-mode, Color Doppler</span></li>
+                            <li><span>Battery Life:</span> <span>Up to 5 hours</span></li>
+                            <li><span>Weight:</span> <span>7.5 kg (16.5 lbs)</span></li>
+                            <li><span>Dimensions:</span> <span>40 × 30 × 20 cm</span></li>
+                            <li><span>Certifications:</span> <span>FDA, CE, ISO 13485</span></li>
+                        </ul>
+                    </div>
+                    <div class="order-form">
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" id="decreaseQty">-</button>
+                                <input type="number" id="quantity" class="quantity-input" value="1" min="1" max="10">
+                                <button class="quantity-btn" id="increaseQty">+</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shippingMethod">Shipping Method</label>
+                            <select id="shippingMethod" class="shipping-method">
+                                <option value="standard">Standard Shipping (5-7 business days)</option>
+                                <option value="express">Express Shipping (2-3 business days)</option>
+                                <option value="priority">Priority Shipping (1-2 business days)</option>
+                            </select>
+                            <div class="shipping-estimate" id="shippingEstimate">
+                                Estimated delivery: June 15-20, 2023
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn-primary" id="addToCart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-secondary" id="buyNow">
+                                <i class="fas fa-bolt"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="any.jpeg" alt="ECG Machine">
+                    </div>
+                    <div class="product-info">
+                        <h3>ECG Machine</h3>
+                        <p>12-lead ECG machine with built-in printer</p>
+                        <div class="product-meta">
+                            <span class="price">$3,200.00</span>
+                            <span class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-outline">Details</button>
+                            <button class="btn btn-primary">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="system.jpeg" >
+                    </div>
+                    <div class="product-info">
+                        <h3>Patient Monitor</h3>
+                        <p>6-parameter monitoring system</p>
+                        <div class="product-meta">
+                            <span class="price">$5,200.00</span>
+                            <span class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                            </span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-outline">Details</button>
+                            <button class="btn btn-primary">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="set.jpeg">
+                    </div>
+                    <div class="product-info">
+                        <h3>Surgical Instrument Set</h3>
+                        <p>Complete set of 120 precision tools</p>
+                        <div class="product-meta">
+                            <span class="price">$2,800.00</span>
+                            <span class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-outline">Details</button>
+                            <button class="btn btn-primary">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/300x200?text=Centrifuge" alt="Laboratory Centrifuge">
+                    </div>
+                    <div class="product-info">
+                        <h3>Laboratory Centrifuge</h3>
+                        <p>High-speed centrifuge with digital display</p>
+                        <div class="product-meta">
+                            <span class="price">$3,750.00</span>
+                            <span class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-outline">Details</button>
+                            <button class="btn btn-primary">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>WellVine</h3>
+                    <p>Leading global provider of high-quality medical equipment and supplies to healthcare institutions worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Product Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Diagnostic Equipment</a></li>
+                        <li><a href="#">Surgical Instruments</a></li>
+                        <li><a href="#">Patient Monitoring</a></li>
+                        <li><a href="#">Laboratory Equipment</a></li>
+                        <li><a href="#">Medical Furniture</a></li>
+                        <li><a href="#">Disposable Supplies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Medical Way, Boston, MA 02115, USA</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (800) 555-HEAL</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@wellvine.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>24/7 Support Available</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 WellVine Medical Equipment. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('#mainNav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                });
+            });
+
+            // Product Gallery Thumbnail Click
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.getElementById('mainProductImage');
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    // Remove active class from all thumbnails
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+                    // Update main image (in a real app, you'd use the correct image source)
+                    const thumbImg = this.querySelector('img');
+                    mainImage.src = thumbImg.src.replace('300x300', '600x600');
+                });
+            });
+
+            // Quantity Selector
+            const quantityInput = document.getElementById('quantity');
+            const decreaseBtn = document.getElementById('decreaseQty');
+            const increaseBtn = document.getElementById('increaseQty');
+            
+            decreaseBtn.addEventListener('click', function() {
+                let value = parseInt(quantityInput.value);
+                if (value > 1) {
+                    quantityInput.value = value - 1;
+                }
+            });
+            
+            increaseBtn.addEventListener('click', function() {
+                let value = parseInt(quantityInput.value);
+                if (value < 10) {
+                    quantityInput.value = value + 1;
+                }
+            });
+
+            // Shipping Method Change
+            const shippingMethod = document.getElementById('shippingMethod');
+            const shippingEstimate = document.getElementById('shippingEstimate');
+            
+            // Sample delivery dates calculation
+            function updateShippingEstimate() {
+                const today = new Date();
+                let deliveryDate = new Date();
+                
+                switch(shippingMethod.value) {
+                    case 'standard':
+                        deliveryDate.setDate(today.getDate() + 7);
+                        break;
+                    case 'express':
+                        deliveryDate.setDate(today.getDate() + 3);
+                        break;
+                    case 'priority':
+                        deliveryDate.setDate(today.getDate() + 2);
+                        break;
+                }
+                
+                const options = { month: 'long', day: 'numeric', year: 'numeric' };
+                const formattedDate = deliveryDate.toLocaleDateString('en-US', options);
+                
+                if (shippingMethod.value === 'standard') {
+                    // For standard shipping, show a date range
+                    const endDate = new Date(deliveryDate);
+                    endDate.setDate(deliveryDate.getDate() + 2);
+                    const formattedEndDate = endDate.toLocaleDateString('en-US', options);
+                    shippingEstimate.textContent = `Estimated delivery: ${formattedDate} - ${formattedEndDate}`;
+                } else {
+                    shippingEstimate.textContent = `Estimated delivery: ${formattedDate}`;
+                }
+            }
+            
+            shippingMethod.addEventListener('change', updateShippingEstimate);
+            
+            // Initialize shipping estimate
+            updateShippingEstimate();
+
+            // Add to Cart Button
+            const addToCartBtn = document.getElementById('addToCart');
+            addToCartBtn.addEventListener('click', function() {
+                const quantity = parseInt(quantityInput.value);
+                const shipping = shippingMethod.options[shippingMethod.selectedIndex].text;
+                
+                // In a real application, you would add this to the cart
+                alert(`Added ${quantity} Portable Ultrasound Machine(s) to your cart with ${shipping}`);
+                
+                // You might also update a cart counter in the header
+            });
+
+            // Buy Now Button
+            const buyNowBtn = document.getElementById('buyNow');
+            buyNowBtn.addEventListener('click', function() {
+                const quantity = parseInt(quantityInput.value);
+                const shipping = shippingMethod.options[shippingMethod.selectedIndex].text;
+                
+                // In a real application, you would redirect to checkout
+                alert(`Proceeding to checkout with ${quantity} Portable Ultrasound Machine(s) with ${shipping}`);
+                
+                // Example redirect:
+                // window.location.href = 'checkout.html';
+            });
+        });
+    </script>
+</body>
+</html>
